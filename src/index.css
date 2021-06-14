@@ -109,7 +109,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a0809', end
   margin-top: 20px;
   margin-left: 10px;
   margin-right: 10px;
-  width: 500px;
+  width: auto;
   height: 10px;
   background-color: grey;
   border-radius: 5px;

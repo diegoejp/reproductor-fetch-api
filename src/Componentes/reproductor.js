@@ -5,11 +5,11 @@ import { createRef, useState } from "react";
 
 
 function Reproductor(props){
-    let lista =     [
-          { "id":1, "category":"game", "name":"Mario Castle", "url":"files/mario/songs/castle.mp3" },
-          { "id":2, "category":"game", "name":"Mario Star", "url":"files/mario/songs/hurry-starman.mp3"},
-          { "id":3, "category":"game", "name":"Mario Overworld", "url":"files/mario/songs/overworld.mp3"}
-      ]
+    // let lista =     [
+    //       { "id":1, "category":"game", "name":"Mario Castle", "url":"files/mario/songs/castle.mp3" },
+    //       { "id":2, "category":"game", "name":"Mario Star", "url":"files/mario/songs/hurry-starman.mp3"},
+    //       { "id":3, "category":"game", "name":"Mario Overworld", "url":"files/mario/songs/overworld.mp3"}
+    //   ]
 
       
     // let urlListo = "https://assets.breatheco.de/apis/sound/"+lista[props.indexCancion].url 
@@ -84,23 +84,19 @@ function Reproductor(props){
     
 
     return(
-        <div className={"row"}>
+    
+        <div className={"row fixed-bottom text-center"}>
             <div className="col-md-12 mt5">
-                <audio controls
+                <audio 
                     //autoPlay //con esta linea hago que cuando se seleccione o cambie se autoreproduzca
                     ref={t=>audio =t}
                     src={"https://assets.breatheco.de/apis/sound/"+props.urlS}
-                    value ={lista[props.indexCancion].name}
+                    value ={props.data[props.indexCancion].name}
+                    
                     
                 >
                 </audio>
-                <div className="barra" id="barra" ref={t=>barra = t} onMouseUp={posicion}  >
-                    <div className="progreso" ref={t=>progress=t} style={{
-                        width : "0px"
-                    }}></div>
-                    <p className="pro" ref={t=>tiempo=t}>{progreso}</p>
-                    <p className="dur" ref={t=>dur=t}>0:00</p>
-                </div>
+               
               
             </div>
             
@@ -119,8 +115,16 @@ function Reproductor(props){
                 }}/>
                
                 <span className="textoblanco">Reproduciendo :     {props.seleccionada}</span>
+                 <div className="barra" id="barra" ref={t=>barra = t} onMouseUp={posicion}  >
+                    <div className="progreso" ref={t=>progress=t} style={{
+                        width : "0px"
+                    }}></div>
+                    <p className="pro" ref={t=>tiempo=t}>{progreso}</p>
+                    <p className="dur" ref={t=>dur=t}>0:00</p>
+                </div>
             </div>
         </div>
+                
     )
 }
 
